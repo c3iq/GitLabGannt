@@ -10,7 +10,7 @@ I have GitLab installed in a Docker container. This is how I retrieve the issues
 
 *    $ docker exec -i -t gitlab_web_1 bash
 *    $ gitlab-psql -d gitlabhq_production
-*    Copy (select issues.iid, m.title, issues.title, issues.description, time_estimate, issues.due_date from issues, milestones as m where issues.state = 'opened' and issues.time_estimate > 0 and issues.milestone_id = m.id ORDER BY issues.due_date ASC) To '/tmp/issues.csv' With CSV DELIMITER ';';
+*    $ Copy (select issues.iid, m.title, issues.title, issues.description, time_estimate, issues.due_date from issues, milestones as m where issues.state = 'opened' and issues.time_estimate > 0 and issues.milestone_id = m.id ORDER BY issues.due_date ASC) To '/tmp/issues.csv' With CSV DELIMITER ';';
 
 Back at the host:
 *    docker cp gitlab_web_1:/tmp/issues.csv .
